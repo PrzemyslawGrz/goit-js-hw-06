@@ -13,15 +13,13 @@ const images = [
   },
 ];
 
-const gallery = document.querySelector(".gallery");
-console.log(gallery);
-const copyImages = [];
-images.forEach((img) => {
-  console.log(img.url);
-  console.log(img.alt);
-  copyImages.push(img);
-  gallery.insertAdjacentHTML(
-    `afterbegin`,
-    `<li class="gallery__item"><img class="gallery__pic" src="${img.url}" alt="${img.alt}"></li>`
-  );
-});
+const list = document.querySelector(".gallery");
+let listElement = [];
+for (let i = 0; i < images.length; i++) {
+  const { url, alt } = images[i];
+  listElement[
+    i
+  ] = `<li class="gallery__item"><img class="gallery__pic" src="${url}" alt="${alt}"></li>`;
+}
+let listToPublish = listElement.map((image) => image).join();
+list.insertAdjacentHTML("afterbegin", listToPublish);
