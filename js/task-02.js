@@ -14,6 +14,4 @@ for (let i = 0; i < ingredients.length; i++) {
   listElement[i].textContent = ingredients[i];
 }
 
-for (let i = 0; i < ingredients.length; i++) list.append(listElement[i]);
-
-
+list.append(...listElement);
